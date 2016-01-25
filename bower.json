@@ -2,7 +2,7 @@
   "name": "ng-backbone",
   "version": "0.1.1",
   "authors": [
-    "Adrian Lee <adrianlee44@gmail.com>"
+    "antixrist <ya.antixrist@gmail.com>"
   ],
   "description": "Backbone data model and collection for AngularJS",
   "main": "ng-backbone.js",
@@ -13,8 +13,8 @@
     "model",
     "collection"
   ],
-  "license": "MIT",
-  "homepage": "https://github.com/adrianlee44/ng-backbone",
+  "license": "WTFPL",
+  "homepage": "https://github.com/antixrist/ng-backbone",
   "ignore": [
     "**/.*",
     "node_modules",
