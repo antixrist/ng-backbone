@@ -3,9 +3,9 @@ ng-backbone
 ===
   Backbone data model and collection for AngularJS  
 
-  [![Build Status](http://img.shields.io/travis/adrianlee44/ng-backbone.svg?style=flat)](https://travis-ci.org/adrianlee44/ng-backbone)  
+  [![Build Status](http://img.shields.io/travis/antixrist/ng-backbone-proxy.svg?style=flat)](https://travis-ci.org/antixrist/ng-backbone-proxy)  
 
-Version: `0.1.1`  
+Version: `0.1.3`  
 
 ### Dependencies
   - [AngualrJS](https://angularjs.org)  
@@ -146,11 +146,12 @@ NgBackboneCollection
   });  
   ```  
 
-  The `$models` property creates a one-way binding to collection `models` which is the Javascript array of models. Application can only access the array with `$models` but will not be able to modify it.  
+  The `$models` property also creates a two-way binding.
+  If collection's model instance of `NgBackboneModel` then all models in this collection also have `$attr` property for two-way binding.
   HTML:  
   ```html  
-  <ul>  
-    <li ng-repeat="user in users.$models">{{user.username}}<li>  
+  <ul>
+    <li ng-repeat="user in users.$models">{{user.$attr.username}}<li>  
   </ul>  
   ```  
 
@@ -170,7 +171,7 @@ NgBackboneCollection
   ```html  
   <ul>  
     <li ng-if="users.$status.loading">Loading...</li>  
-    <li ng-repeat="user in users.$models">{{user.username}}<li>  
+    <li ng-repeat="user in users.$models">{{user.$attr.username}}<li>  
   </ul>  
   ```  
 

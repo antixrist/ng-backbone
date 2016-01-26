@@ -1,5 +1,5 @@
 {
-  "name": "ng-backbone",
+  "name": "ng-backbone-proxy",
   "version": "0.1.3",
   "authors": [
     "antixrist <ya.antixrist@gmail.com>"
@@ -14,7 +14,7 @@
     "collection"
   ],
   "license": "WTFPL",
-  "homepage": "https://github.com/antixrist/ng-backbone",
+  "homepage": "https://github.com/antixrist/ng-backbone-proxy",
   "ignore": [
     "**/.*",
     "node_modules",

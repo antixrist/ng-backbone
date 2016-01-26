@@ -52,29 +52,21 @@ module.exports = function(grunt) {
         src: ['test/*.spec.js']
       }
     },
-    chalkboard: {
-      ngBackbone: {
-        files: [
-          {'README.md':  ['ng-backbone.js']}
-        ]
-      }
-    },
     uglify: {
       ngBackbone: {
         options: {
           sourceMap: true,
-          sourceMapName: 'ng-backbone.map'
+          sourceMapName: 'ng-backbone-proxy.map'
         },
         files: {
-          'ng-backbone.min.js': ['ng-backbone.js']
+          'ng-backbone-proxy.min.js': ['ng-backbone-proxy.js']
         }
       }
     }
   });
 
   grunt.registerTask('default', [
-    'chalkboard',
-    'karma:ci',
+    //'karma:ci',
     'uglify'
   ]);
 };
