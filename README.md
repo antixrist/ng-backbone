@@ -41,10 +41,10 @@ NgBackboneModel
   });  
   ```  
 
-  The `$attributes` property allows application to use AngularJS two-way binding to manipulate Backbone objects using Backbone `get` and `set`.  
+  The `$attr` property allows application to use AngularJS two-way binding to manipulate Backbone objects using Backbone `get` and `set`.  
   HTML:  
   ```html  
-  <input type="text" ng-model="person.$attributes.name">  
+  <input type="text" ng-model="person.$attr.name">  
   ```  
 
   Javascript:  
@@ -53,6 +53,40 @@ NgBackboneModel
     name: 'John'  
   });  
   ```  
+
+  If you are passed `{silent: true}` to options for edit model or collection then Angular do not know about it.
+  You must triggered `change` event on model or collection manually and also call `$scope.$digest()` or `$scope.$apply()` for recalculate $digest and rerender template:
+  ```javascript
+  $scope.person = new Person({  
+      name: 'John'  
+  });
+  $scope.person.set({name: 'Mike'}, {silent: true});
+  $scope.person.set({age: 100500}, {silent: true});
+  //*/
+    ...another changes...
+  //*/
+  $scope.person.trigger('change'); // report about the model have been changes
+  $scope.$digest(); // rerender angular's template.
+  ```
+  
+  Also for collections:
+  ```javascript
+  $scope.persons = new Persons({
+    model: Person  
+  });
+  $scope.persons.add([{  
+    name: 'John'  
+  }, {  
+    name: 'Mike'  
+  }], {
+    silent: true
+  });
+  //*/
+    ...another changes...
+  //*/
+  $scope.person.trigger('change'); // report about the collection have been changes
+  $scope.$digest(); // rerender angular's template.
+  ```
 
   The `$status` property is the hash containing model sync state. Since `$status` updates using Backbone event, passing `{silent: true}` will prevent `$status` from updating. `$status` contains four properties, including:  
   - `deleting`: Set to true when invoking `destroy` method on model (HTTP `DELETE` request)  

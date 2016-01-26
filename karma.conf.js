@@ -6,7 +6,7 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/underscore/underscore.js',
       'bower_components/backbone/backbone.js',
-      'ng-backbone.js',
+      'ng-backbone-proxy.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'test/*.spec.js'
     ],

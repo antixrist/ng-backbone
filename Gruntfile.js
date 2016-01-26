@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           _: true
         }
       },
-      ngBackbone: ['ng-backbone.js'],
+      ngBackbone: ['ng-backbone-proxy.js'],
       test: {
         options: {
           strict: false,
